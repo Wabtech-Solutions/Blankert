@@ -26,10 +26,10 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::middleware(Authenticate::class)->group(function() {
     Route::get('/', function () {return view('welcome');})->name('welcome');
-    Route::get('/register', function () {
+    Route::get('/home', function () {
         $user = Auth::user();
         return  view('home' , ['user' => $user]);
     })->name('home');
-    Route::post('/home', [AuthController::class, 'home']);
+    Route::post('/home', [AuthController::class, 'register']);
 });
 

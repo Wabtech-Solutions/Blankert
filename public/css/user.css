@@ -1,0 +1,217 @@
+/* body{
+    overflow-y: hidden;
+} */
+
+a{
+    text-decoration: none;
+}
+
+.betamessage{
+    position: absolute;
+    top: 90vh;
+    right: 20px;
+    border: 1px solid red;
+    color: #222222;
+    padding: 0px 20px;
+    background-color: white;
+    border: 2px solid #8b0000;
+    transition: 0.3s;
+    box-shadow: 5px 5px 0px 0px #8b0000;
+}
+
+
+.betamessage:hover {
+    box-shadow: 0 0 #8b0000;
+    color: #fff;
+    background-color: #8b0000;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.container {
+    display: grid;
+    width: 100%;
+    height: 80%;
+    grid-template-areas: "car hubspot offerte"
+    "stats stats offerte";
+    grid-template-columns: auto 410px 240mm;
+    grid-template-rows: 60% 45%;
+  }
+  .container > div {
+    margin: 10px;
+  }
+
+  .hubspot {
+    margin-top: 50px!important;
+    grid-area: hubspot;
+    border: 2px solid #009879;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+   }
+  .car {
+    grid-area: car;
+  }
+  .offerte {
+    grid-area: offerte;
+  }
+  .stats {
+    grid-area: stats;
+    border: 2px solid #009879;
+    border-radius: 10px;
+    filter: drop-shadow(3px 6px 18px rgba(8, 8, 8, 0.59));
+    background-color: rgb(255, 255, 255);
+  }
+
+  .a4{
+    border: 2px solid blue;
+    min-width: 210mm;
+    max-width: 210mm;
+    min-height: 297mm;
+  }
+
+  table.GeneratedTable {
+    width: 100%;
+    background-color: #ffffff;
+    border-collapse: collapse;
+    border-width: 2px;
+    border-color: #1e571f;
+    border-style: solid;
+    color: #000000;
+  }
+
+  table.GeneratedTable td, table.GeneratedTable th {
+    border-width: 2px;
+    border-color: #1e571f;
+    border-style: solid;
+    padding: 3px;
+  }
+
+  table.GeneratedTable thead {
+    background-color: #1e571f;
+  }
+
+  .statBody{
+    display: flex;
+    justify-content: center;
+  }
+
+  .userStat{
+    border-color: transparent;
+    border-style: solid;
+    min-height: 20em;
+  }
+
+  table.statTable {
+    text-align: left;
+  }
+  table.statTable td, table.statTable th {
+    border: 2px solid #3d2d2d;
+    border-radius: 5px;
+    padding: 5px 10px;
+  }
+
+  table.statTable tfoot td {
+    font-size: 14px;
+  }
+
+  .styled-table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 300px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 10;
+}
+
+.styled-table tbody tr {
+    border-bottom: 2px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.styled-table tbody tr.active-row-red {
+    font-weight: bold;
+    color: #981700;
+}
+
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#brow2,
+#La1_p1_a1 {
+    width: 95%;
+}
+
+.form-row {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+.carForm{
+    padding: 10px
+}
+
+.hubInput{
+    visibility: show;
+    margin-top: 5%;
+    position: fixed;
+    width: 80%;
+    height:80vh;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.562);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.541);
+    border: 2px solid #f57722;
+    backdrop-filter: blur(10px);
+}
+
+.hubBody{
+    display: block;
+}
+
+.hubHeader{
+    height: 70px;
+    background-color: #f576226e;
+    border-radius: 20px 20px 0 0;
+}
+
+.hubHeaderInner{
+    width: 100%;
+    border: 1px dotted red;
+}
+
+#hidden{
+    visibility: hidden;
+}
+
+

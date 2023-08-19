@@ -6,10 +6,37 @@
 }
 
 body {
+    margin: 0;
     background-color: rgb(242, 242, 242);
+    display: block;
+
+}
+
+
+.flex {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
+    background-image: url("/img/bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.spacer30px {
+    width: 30px;
+}
+
+
+/* animate */
+
+
+a{
+    text-decoration: none;
 }
 
 /*  =================================================================
@@ -18,38 +45,109 @@ body {
 
 
 
-.form-login{
+.form-login {
     display: block;
-    background-color: white;
-    padding: 30px 50px;
-    border-radius: 15px 30px;
+    background: linear-gradient(8deg, rgba(28, 71, 30, 0.200) 0%, rgba(13, 121, 9, 0.200) 35%, rgba(30, 255, 0, 0.200) 100%);
+    padding: 50px 70px 0px 70px;
+    border-radius: 12px;
     -webkit-box-shadow: 0px 0px 23px -11px #000000;
     box-shadow: 0px 0px 23px -11px #000000;
+    backdrop-filter: blur(5px);
 }
 
-input{
+input {
     display: block;
-    margin: 20px;
+    margin: 10px;
     padding: 5px 20px;
     font-size: 16;
-    border: 1px solid rgb(21, 98, 82);
-    border-radius:5px;
+    border: 12 solid rgb(21, 98, 82);
+    border-radius: 5px;
     background-color: rgb(247, 247, 247);
+    line-height: 1;
+    text-decoration: none;
+    color: #333333;
+    font-size: 18px;
+    border-radius: 0px;
+    height: 40px;
+    font-weight: bold;
+    border: 2px solid #333333;
+    transition: 0.3s;
+    box-shadow: 5px 5px 0px 0px rgba(51, 51, 51, 1);
+    background-color: #ffffff;
+    margin-top: 10PX;
+    font-style: italic;
+    width: 300px;
 }
 
-button{
+input:focus {
+    box-shadow: 0 0 #333;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    outline: none;
 }
 
-.center{
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-decoration: none;
+    color: #333333;
+    font-size: 18px;
+    border-radius: 0px;
+    width: 200px;
+    height: 40px;
+    font-weight: bold;
+    border: 2px solid #333333;
+    transition: 0.3s;
+    box-shadow: 5px 5px 0px 0px rgba(51, 51, 51, 1);
+    background-color: #ffffff;
+    margin-top: 10PX;
+    font-style: italic;
+}
+
+button:hover {
+    box-shadow: 0 0 #333;
+    color: #fff;
+    background-color: #333;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+button:active {
+    border: none;
+    outline: none;
+}
+
+.login-title {
+    font-size: 50;
+    font-weight: 900;
+    font-style: italic;
+    margin: 0px 0px 20px 0px;
+}
+
+.center {
     display: flex;
     justify-content: center;
 }
 
-.error{
+.version {
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    background-color: rgba(0, 0, 0, 0.596);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.error {
     margin: 20px;
-    padding: 10px 40px;
+    padding: 10px 20px;
     background-color: rgb(228, 165, 165);
-    border: 1px solid rgb(170, 20, 20);
+    border: 12 solid rgb(170, 20, 20);
     color: white;
     font-weight: 100;
     font-size: 12;
@@ -59,3 +157,206 @@ button{
 /*  =================================================================
         End Login Form Styling
 ================================================================    */
+
+
+.header {
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient( 109.6deg,  rgba(61,131,97,1) 11.2%, rgba(28,103,88,1) 91.1% );
+    margin: 0;
+    padding: none;
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 23px -11px #000000;
+    box-shadow: 0px 0px 23px -11px #000000;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.header-left {
+    width: 50%;
+    align-items: left;
+}
+
+.header-right {
+    width: 40%;
+    display: flex;
+    align-items: right;
+    justify-content: right;
+}
+
+/*  =================================================================
+        start admin
+================================================================    */
+.admin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-user-add {
+    width: 40%;
+}
+
+.admin-user-row1 {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    align-content: stretch;
+    -webkit-align-items: baseline;
+    align-items: baseline;
+}
+
+.admin-user-row1:nth-child(1) {
+    -webkit-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: center;
+    align-self: center;
+}
+
+.admin-user-row1:nth-child(2) {
+    -webkit-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: center;
+    align-self: center;
+}
+
+.admin-user-row2 {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    align-content: stretch;
+    -webkit-align-items: baseline;
+    align-items: baseline;
+}
+
+.admin-user-row2:nth-child(1) {
+    -webkit-order: 0;
+    order: 0;
+    -webkit-flex: 0 1 auto;
+    flex: 0 1 auto;
+    -webkit-align-self: center;
+    align-self: center;
+}
+
+#hubspotbtn {
+    box-shadow: 5px 5px 0px 0px #f57722;
+    border: 2px solid #f57722;
+    color: #f57722;
+}
+
+#hubspotbtn:hover {
+    box-shadow: 0 0 #f57722;
+    color: #fff;
+    background-color: #f57722;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+fieldset {
+    border: 2px solid #000;
+    margin: 40px 40px 40px 40px;
+}
+
+select {
+    display: block;
+    margin: 10px;
+    padding: 5px 20px;
+    font-size: 16;
+    border: 12 solid rgb(21, 98, 82);
+    border-radius: 5px;
+    background-color: rgb(247, 247, 247);
+    line-height: 1;
+    text-decoration: none;
+    color: #333333;
+    font-size: 18px;
+    border-radius: 0px;
+    height: 40px;
+    font-weight: bold;
+    border: 2px solid #333333;
+    transition: 0.3s;
+    box-shadow: 5px 5px 0px 0px rgba(51, 51, 51, 1);
+    background-color: #ffffff;
+    margin-top: 10PX;
+    font-style: italic;
+    width: 300px;
+}
+
+select:focus {
+    box-shadow: 0 0 #333;
+    color: #fff;
+    background-color: #333;
+    border: none;
+    outline: none;
+}
+
+#greenbtn {
+    box-shadow: 5px 5px 0px 0px #215a2d;
+    border: 2px solid #215a2d;
+    color: #215a2d;
+    width: 300px;
+}
+
+#greenbtn:hover {
+    box-shadow: 0 0 #215a2d;
+    color: #fff;
+    background-color: #215a2d;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+#redbtn {
+    box-shadow: 5px 5px 0px 0px #5a2121;
+    border: 2px solid #5a2121;
+    color: #5a2121;
+    width: 300px;
+}
+
+#redbtn:hover {
+    box-shadow: 0 0 #5a2121;
+    color: #fff;
+    background-color: #5a2121;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.alert {
+    position: absolute;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #36f465;
+    color: white;
+  }
+
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }

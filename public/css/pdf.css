@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css?family=Inter');
+
+@page {
+margin: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-width: 210mm;
+    max-width: 210mm;
+    max-height: 297mm;
+    min-height: 297mm;
+    width: 210mm;
+    height: 297mm;
+}
+
+.center {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.page {
+    min-width: 210mm;
+    max-width: 210mm;
+    max-height: 297mm;
+    min-height: 297mm;
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+}
+
+#page1 {
+    background-image: url('https://www.blankertshortlease.nl/wp-content/uploads/2023/07/Cupra-Willem.png');
+    background-position: 40% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#page2 {
+    /* display: none; */
+}
+
+#page3 {
+    /* display: none; */
+}
+.logo-container {
+    width: 100%;
+    height: 60px;
+    background-color: white;
+    border-radius: 0 0 15px 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: normal;
+        -ms-flex-align: normal;
+            align-items: normal;
+    -ms-flex-line-pack: normal;
+        align-content: normal;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-filter: drop-shadow(0 5mm 0.55rem rgba(32, 32, 32, 0.301));
+            filter: drop-shadow(0 5mm 0.55rem rgba(32, 32, 32, 0.301));
+}
+
+.logo-text {
+    font-family: 'Inter';
+    letter-spacing: .05rem;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.helper-text {
+    font-family: 'Inter';
+}
+
+.helper-phone {
+    background-color: #39AA35;
+    color: white;
+    font-weight: bold;
+    height: 20px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin-right: 10px
+}
+
+.offer {
+    overflow: auto;
+}
+
+.offer2 {
+    overflow: hidden;
+}
+
+#offer-style {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin-top: 20px;
+    width: 180mm;
+    max-height: 250mm;
+}
+
+#offer-style2 {
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin-top: 20px;
+    width: 180mm;
+    max-height: 260mm;
+}
+
+.offer-item {
+    margin-top: 10mm;
+    width: 180mm;
+    min-height: 70mm;
+    background-color: white;
+    border-radius: 10px
+}
+
+.container {
+
+}
+
+.offer-title {
+    margin: 16px -0 0 10px;
+    font-family: 'Inter';
+    font-size: 10px;
+    text-decoration: underline;
+}
+
+.offer-specs-layout {
+    margin-top: -215px;
+    width: 60%;
+}
+
+.specs-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: normal;
+        -ms-flex-align: normal;
+            align-items: normal;
+    -ms-flex-line-pack: center;
+        align-content: center;
+}
+
+.specs-item {
+    display: block;
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+    -ms-flex-item-align: auto;
+        -ms-grid-row-align: auto;
+        align-self: auto;
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+    width: 25%;
+}
+
+.specs-tr {
+    margin: 0 20px 0 10px;
+    font-family: 'Inter';
+    font-size: 10px;
+}
+
+.specs-td {
+    margin: 0 10px 0 0;
+    font-family: 'Inter';
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.offerte-img {
+    margin: 20px 0 20px 460px;
+    -webkit-filter: drop-shadow(5px 5px 12px rgba(0, 0, 0, 0.288));
+            filter: drop-shadow(5px 5px 12px rgba(0, 0, 0, 0.288));
+}
+
+.offerte-btn {
+    font-family: 'Inter';
+    background-color: #39AA35;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    width: 200px;
+}
+
+.tarieven-box {
+    padding-bottom: 20px;
+}
+
+.tarief-value {
+    margin: 5px -40px 0 30px;
+    font-family: 'Inter';
+    font-size: 11px;
+}
+
+.tarief-title {
+    margin: 10px 20px 0 10px;
+    font-family: 'Inter';
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.footer {
+    position: absolute;
+    top: 280mm;
+    width: 210mm;
+    height: 20mm;
+    background-color: #39AA35;
+    border-radius: 20px 20px 0 0;
+}
+
+.footer-text {
+    font-size: 12px;
+    font-family: 'Inter';
+    color: white;
+}

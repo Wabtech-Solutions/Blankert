@@ -1,0 +1,50 @@
+.tab {
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 0px 2px;
+    background: rgba(61,131,97,1);
+    display: inline-block;
+    color: #fff;
+    border-radius: 3px 3px 0px 0px;
+    box-shadow: 0 0.5rem 0.8rem #000 80;
+
+}
+.panels {
+    background: #fff;
+    box-shadow: 0 2rem 2rem #000 80;
+    min-height: 200px;
+    max-height: 770px;
+    width: 800px;
+    border-radius: 3px;
+    overflow: hidden;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #009879;
+}
+.panel {
+    display: none;
+    animation: fadein 0.8s;
+}
+@keyframes fadein {
+    from {
+        opacity: 0;
+   }
+    to {
+        opacity: 1;
+   }
+}
+.panel-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.radio {
+    display: none;
+}
+#one:checked ~ .panels #one-panel, #two:checked ~ .panels #two-panel, #three:checked ~ .panels #three-panel , #four:checked ~ .panels #four-panel, #five:checked ~ .panels #five-panel, #six:checked ~ .panels #six-panel{
+    display: block;
+}
+#one:checked ~ .tabs #one-tab, #two:checked ~ .tabs #two-tab, #three:checked ~ .tabs #three-tab, #four:checked ~ .tabs #four-tab, #six:checked ~ .tabs #six-tab, #five:checked ~ .tabs #five-tab {
+    background: #fff;
+    color: #000;
+    border-top: 3px solid rgba(61,131,97,1);
+}

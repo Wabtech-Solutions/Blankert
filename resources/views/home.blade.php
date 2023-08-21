@@ -1,10 +1,10 @@
 <html lang="en">
 
-@if ($user->role == env('ACL_ADMIN_ROLE')))
+@if ($user->role == "2"))
     @include('admin.admin')
 @endif
 
-@if ($user->role == "2")
+@if ($user->role == "1")
     @include('user')
 @endif
 

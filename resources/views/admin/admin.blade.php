@@ -1,4 +1,4 @@
-<title>Hi {{ auth()->user()->name }} ✌️</title>
+{{-- <title>Hi {{ auth()->user()->name }} ✌️</title> --}}
 <link rel="stylesheet" href="/css/admin.css">
 <link rel="stylesheet" href="/css/style.css">
 

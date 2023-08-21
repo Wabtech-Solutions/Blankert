@@ -4,7 +4,7 @@
     @include('admin.admin')
 @endif
 
-@if ($user->role == env('ACL_USER_ROLE'))
+@if ($user->role == "2")
     @include('user')
 @endif
 

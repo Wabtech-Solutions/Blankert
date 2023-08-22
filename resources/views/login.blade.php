@@ -1,9 +1,5 @@
 <html lang="en">
 
-<?php
-
-phpinfo(); ?>
-
 @extends('layout')
 
 @section('content')

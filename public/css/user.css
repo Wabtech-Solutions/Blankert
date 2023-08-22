@@ -36,7 +36,7 @@ a{
     height: 80%;
     grid-template-areas: "car hubspot offerte"
     "stats stats offerte";
-    grid-template-columns: auto 410px 240mm;
+    grid-template-columns: auto 410px 400px ;
     grid-template-rows: 60% 45%;
   }
   .container > div {
@@ -55,8 +55,15 @@ a{
     grid-area: car;
   }
   .offerte {
+    margin-top: 50px!important;
     grid-area: offerte;
+    border: 2px solid #009879;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: white;
   }
+
+
   .stats {
     grid-area: stats;
     border: 2px solid #009879;
@@ -216,3 +223,46 @@ a{
 }
 
 
+.quiz-chartTip {
+    padding: 5px 10px;
+    border: 1px solid rgba(0,0,0,.1);
+    border-radius: 4px;
+    background-color: rgba(255,255,255,.9);
+    box-shadow: 3px 3px 10px rgba(0,0,0,.1);
+    position: absolute;
+    z-index: 50;
+    max-width: 150px;
+}
+
+.quiz-graph {
+    padding: 10px;
+    height: 370px;
+    width: 80%;
+}
+
+.quiz-graph .x-labels {
+    text-anchor: middle;
+}
+
+.quiz-graph .y-labels {
+    text-anchor: end;
+}
+
+.quiz-graph .quiz-graph-grid {
+    stroke: #ccc;
+    stroke-dasharray: 0;
+    stroke-width: 1;
+}
+
+.label-title {
+    text-anchor: middle;
+    text-transform: uppercase;
+    font-size: 12px;
+    fill: gray;
+}
+
+.quiz-graph-dot, .quiz-graph-start-dot{
+    fill: rgba(0,112,210,1);
+    stroke-width: 2;
+    stroke: white;
+}

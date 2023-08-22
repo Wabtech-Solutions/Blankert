@@ -80,7 +80,7 @@ if ($h >= 5 && $h <= 11) {
                 <option value="Ja">Ja</option>
             </select>
 
-            <div class="center" style="display: none">
+            <div class="center" style="border: 1px dotted red" >
                 <button id="submit_button">Maak offerte</button>
 
                 <a href="https://blankert.test/generate-pdf?download=true">Download PDF</a>
@@ -107,8 +107,8 @@ if ($h >= 5 && $h <= 11) {
             </div>
         </div>
 
-        <a href="mailto:klanten@wabtech-solutions.nl?cc=willem@blankert.nl&subject=Bug%20melding%3A%20Blankert%20Shortlease%20Offerte-tool&body=Beste%20Willem%2C%0D%0A%0D%0AIk%20ondervindt%20een%20fout%20in%20de%20software.%0D%0A%0D%0A%5BBeschrijf%20fout%5D%0D%0A%0D%0AMet%20Vriendelijke%20groet%2C%0D%0A"><div class="betamessage">
-<p>Let op! Dit is een <b>Beta versie</b>! Ondervind je fouten? Meld ze hier.   </p>
+        <div class="betamessage">
+<p>Let op! Dit is een <b>Beta versie</b>! Ondervind je fouten?<a href="mailto:klanten@wabtech-solutions.nl?cc=willem@blankert.nl&subject=Bug%20melding%3A%20Blankert%20Shortlease%20Offerte-tool&body=Beste%20Willem%2C%0D%0A%0D%0AIk%20ondervindt%20een%20fout%20in%20de%20software.%0D%0A%0D%0A%5BBeschrijf%20fout%5D%0D%0A%0D%0AMet%20Vriendelijke%20groet%2C%0D%0A"> Meld ze hier.   </p>
 </div></a>
 
         <div class="car">
@@ -749,7 +749,11 @@ if ($h >= 5 && $h <= 11) {
 
             </div>
         </div>
+        <div class="offerte" >
 
+
+
+        </div>
     </div>
 @endsection
 
@@ -1168,7 +1172,9 @@ if ($h >= 5 && $h <= 11) {
         message = "Geachte " + geslacht + " " + name + "," +
             "\n \nHartelijk dank voor uw interesse in de diensten van Blankert Shortlease. Wij zijn verheugd om u een op maat gemaakete offerte aan te bieden. In de bijgevoegde offerte vindt u ons aanbod.\n" +
             gew +
-            "\nHeeft u nog vragen of wens u een alternatief aanbod, dan staan wij altijd klaar om u te helpen. \n \n";
+            "\nHeeft u nog vragen of wens u een alternatief aanbod, dan staan wij altijd klaar om u te helpen. \n \n"
+
+            ;
 
         var mailtoUrl = 'mailto:' + email + '?bcc=' + 'offerte@blankert.nl' + '&subject=' + encodeURIComponent(
             subject) + '&body=' + encodeURIComponent(message);

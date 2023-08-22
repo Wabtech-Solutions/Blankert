@@ -26,7 +26,7 @@ class PdfGenerateController extends Controller
         	// pass view file
             $pdf = PDF::loadView('pdf');
             $pdf->setOption('enable-javascript', true);
-            $pdf->setOption('javascript-delay', 13500);
+            $pdf->setOption('javascript-delay', 6000);
             $pdf->setOption('enable-smart-shrinking', true);
             $pdf->setOption('no-stop-slow-scripts', true);
             $pdf->setOption('margin-top', '0');

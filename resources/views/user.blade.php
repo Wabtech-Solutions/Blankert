@@ -7,26 +7,25 @@
 <?php date_default_timezone_set('Europe/Amsterdam');
 $h = date('G');
 if ($h >= 5 && $h <= 11) {
-    // $set = 'Goedemorgen ' . auth()->user()->name;
-    $set = 'Goedemorgen ' . "DEMO";
+    $set = 'Goedemorgen ' . $set = 'Goedemorgen ' . auth()->user()->name;
 } elseif ($h >= 12 && $h <= 18) {
-    $set = 'Goedemiddag ' . "DEMO";
+    $set = 'Goedemiddag ' . auth()->user()->name;
 } else {
-    $set = 'Ga naar huis ' . "DEMO" . '!';
+    $set = 'Ga naar huis ' . auth()->user()->name . '!';
 } ?>
 @php
     $mail = 'Geachte';
-    // $maandVorig = DB::table('statestieken')->value('maandVorig');
-    // $bezettingsgraad = DB::table('statestieken')->value('bezetting');
-    // $bezettingsgraadHuidigMaand = DB::table('statestieken')->value('bezettingsgraadHuidigMaand');
-    // $bezettingsgraad2week = DB::table('statestieken')->value('bezettingsgraad2week');
-    // $bezettingsgraadVorigeWeek = DB::table('statestieken')->value('bezettingsgraadVorigeWeek');
-    // $bezettingsgraadHuidigWeek = DB::table('statestieken')->value('bezettingsgraadHuidigWeek');
-    // $focus1 = DB::table('statestieken')->value('focus1');
-    // $focus2 = DB::table('statestieken')->value('focus2');
-    // $focus3 = DB::table('statestieken')->value('focus3');
-    // $wagenpark = DB::table('statestieken')->value('aantalAuto');
-    // $wagenpark2 = DB::table('statestieken')->value('wagenpark2');
+    $maandVorig = DB::table('statestieken')->value('maandVorig');
+    $bezettingsgraad = DB::table('statestieken')->value('bezetting');
+    $bezettingsgraadHuidigMaand = DB::table('statestieken')->value('bezettingsgraadHuidigMaand');
+    $bezettingsgraad2week = DB::table('statestieken')->value('bezettingsgraad2week');
+    $bezettingsgraadVorigeWeek = DB::table('statestieken')->value('bezettingsgraadVorigeWeek');
+    $bezettingsgraadHuidigWeek = DB::table('statestieken')->value('bezettingsgraadHuidigWeek');
+    $focus1 = DB::table('statestieken')->value('focus1');
+    $focus2 = DB::table('statestieken')->value('focus2');
+    $focus3 = DB::table('statestieken')->value('focus3');
+    $wagenpark = DB::table('statestieken')->value('aantalAuto');
+    $wagenpark2 = DB::table('statestieken')->value('wagenpark2');
     $naam = session('naam');
     $email = session('email');
     $btw = session('btw');
@@ -744,7 +743,7 @@ if ($h >= 5 && $h <= 11) {
 
             </div>
         </div>
-        {{-- <div class="offerte">
+        <div class="offerte">
 
             <table class="graph">
                 <thead>
@@ -832,7 +831,7 @@ if ($h >= 5 && $h <= 11) {
             </div>
 
         </div>
-    </div> --}}
+    </div>
 
 
 
@@ -1210,7 +1209,7 @@ if ($h >= 5 && $h <= 11) {
 
         updateVar();
         // Example: Download the PDF
-        window.location.href = 'https://blankert.test/generate-pdf?download=true';
+        window.location.href = '/generate-pdf?download=true';
 
     }
 
@@ -1222,7 +1221,7 @@ if ($h >= 5 && $h <= 11) {
 
         // Example: Download the PDF
         setTimeout(() => {
-            window.open('https://blankert.test/generate-pdf?download=true', '_blank');
+            window.open('/generate-pdf?download=true', '_blank');
         }, 1000);
         setTimeout(function() {
             location.reload();

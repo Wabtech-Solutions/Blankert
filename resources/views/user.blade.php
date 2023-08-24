@@ -1,4 +1,4 @@
-<title>Hi {{ auth()->user()->name }} ✌️</title>
+{{-- <title>Hi {{ auth()->user()->name }} ✌️</title> --}}
 <link rel="stylesheet" href="/css/user.css">
 <link rel="stylesheet" href="/css/slider.css">
 <script src="/js/options.js"></script>
@@ -7,11 +7,12 @@
 <?php date_default_timezone_set('Europe/Amsterdam');
 $h = date('G');
 if ($h >= 5 && $h <= 11) {
-    $set = 'Goedemorgen ' . auth()->user()->name;
+    // $set = 'Goedemorgen ' . auth()->user()->name;
+    $set = 'Goedemorgen ' . "DEMO";
 } elseif ($h >= 12 && $h <= 18) {
-    $set = 'Goedemiddag ' . auth()->user()->name;
+    $set = 'Goedemiddag ' . "DEMO";
 } else {
-    $set = 'Ga naar huis ' . auth()->user()->name . '!';
+    $set = 'Ga naar huis ' . "DEMO" . '!';
 } ?>
 @php
     $mail = 'Geachte';
@@ -36,17 +37,6 @@ if ($h >= 5 && $h <= 11) {
     $xml = file_get_contents('https://www.blankertshortlease.nl/feed-leasevergelijker.xml');
     $xmlData = simplexml_load_string($xml);
 @endphp
-@if ($naam == '')
-    <?php
-    // $popupclass = 'show';
-    $popupclass = 'hidden';
-    ?>
-@else
-    <?php
-    $popupclass = 'hidden';
-    ?>
-@endif
-
 
 @extends('layout')
 @section('content')
@@ -80,7 +70,7 @@ if ($h >= 5 && $h <= 11) {
                 <option value="Ja">Ja</option>
             </select>
 
-            <div class="center" style="border: 1px dotted red" >
+            <div class="center" style="border: 1px dotted red">
                 <button id="submit_button">Maak offerte</button>
 
                 <a href="https://blankert.test/generate-pdf?download=true">Download PDF</a>
@@ -98,18 +88,23 @@ if ($h >= 5 && $h <= 11) {
                             d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z" />
                     </svg>
                     Verstuur Offerte</button>
-                </div><div class="center">
+            </div>
+            <div class="center">
                 <button onclick="userActionDownload()">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
-                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
-                      </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z" />
+                    </svg>
                     Alleen Downloaden</button>
             </div>
         </div>
 
         <div class="betamessage">
-<p>Let op! Dit is een <b>Beta versie</b>! Ondervind je fouten?<a href="mailto:klanten@wabtech-solutions.nl?cc=willem@blankert.nl&subject=Bug%20melding%3A%20Blankert%20Shortlease%20Offerte-tool&body=Beste%20Willem%2C%0D%0A%0D%0AIk%20ondervindt%20een%20fout%20in%20de%20software.%0D%0A%0D%0A%5BBeschrijf%20fout%5D%0D%0A%0D%0AMet%20Vriendelijke%20groet%2C%0D%0A"> Meld ze hier.   </p>
-</div></a>
+            <p>Let op! Dit is een <b>Beta versie</b>! Ondervind je fouten?<a
+                    href="mailto:klanten@wabtech-solutions.nl?cc=willem@blankert.nl&subject=Bug%20melding%3A%20Blankert%20Shortlease%20Offerte-tool&body=Beste%20Willem%2C%0D%0A%0D%0AIk%20ondervindt%20een%20fout%20in%20de%20software.%0D%0A%0D%0A%5BBeschrijf%20fout%5D%0D%0A%0D%0AMet%20Vriendelijke%20groet%2C%0D%0A">
+                    Meld ze hier. </p>
+        </div></a>
 
         <div class="car">
             <div class="warpper">
@@ -749,13 +744,101 @@ if ($h >= 5 && $h <= 11) {
 
             </div>
         </div>
-        <div class="offerte" >
+        {{-- <div class="offerte">
+
+            <table class="graph">
+                <thead>
+                    <tr>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="height:{{ $bezettingsgraad2week }}%">
+                        <th scope="row">2 weken geleden</th>
+                        <td><span>{{ $bezettingsgraad2week }}%</span></td>
+                    </tr>
+                    <tr style="height:{{ $bezettingsgraadVorigeWeek }}%">
+                        <th scope="row">Vorige week</th>
+                        <td><span>{{ $bezettingsgraadVorigeWeek }}%</span></td>
+                    </tr>
+                    <tr style="height:{{ $bezettingsgraadHuidigWeek }}%">
+                        <th scope="row">Huidige week</th>
+                        <td><span>{{ $bezettingsgraadHuidigWeek }}%</span></td>
+                    </tr>
+                </tbody>
+            </table>
 
 
+            <table class="graph">
+                <thead>
+                    <tr>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="height:{{ $bezettingsgraad }}%;">
+                        <th scope="row">{{ $maandVorig }}</th>
+                        <td
+                            style="background-image: linear-gradient( 109.6deg,  rgba(28,103,88,1), rgba(61,131,97,1) 91.1% )">
+                            <span>{{ $bezettingsgraad }}%</span>
+                        </td>
+                    </tr>
+                    <tr style="height:{{ $bezettingsgraadHuidigMaand }}%;">
+                        <th scope="row">Huidige maand</th>
+                        <td
+                            style="background-image: linear-gradient( 109.6deg,  rgba(28,103,88,1), rgba(61,131,97,1) 91.1% )">
+                            <span>{{ $bezettingsgraadHuidigMaand }}%</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="center">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aantal auto's</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ $wagenpark }}</td>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="center">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Auto's met focus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            @isset($focus1)
+                                <td>{{ $focus1 }}</td>
+                            @else
+                                <td>Geen auto's met focus!</td>
+                            @endisset
+                            @isset($focus2)
+                                <td>{{ $focus2 }}</td>
+                            @endisset
+                            @isset($focus3)
+                                <td>{{ $focus3 }}</td>
+                            @endisset
+                    </tbody>
+                    <table />
+            </div>
 
         </div>
+    </div> --}}
+
+
+
     </div>
 @endsection
+
 
 
 <script>
@@ -1165,16 +1248,18 @@ if ($h >= 5 && $h <= 11) {
 
         if (btw.value == "") {
             sub = "Zakelijk";
+            sub2 =
+                "Wilt u de auto reserveren? Dan ontvangen we geraag het volgende: \n \n•	Kopie uittreksel Kamer van Koophandel van maximaal 6 maanden oud. \n•	Een veilige kopie legitimatie * van tekenbevoegde(n) volgens KvK.\n•	Een veilige kopie rijbewijs * berijder alsmede NAW gegevens. \n•	Machtiging automatische incasso. \n•	Ingevuld account aanvraag formulier, (www.blankertshortlease-offerte.nl/aanvraag-zakelijk) \n•	Voor start shortlease contract, betaling per bank van 2 maandtermijnen als zijnde borg  \n \n*Een veilige kopie maakt u eenvoudig met de KopieID app van de overheid. Het BSN en de pasfoto dient u onleesbaar te maken. ";
         } else {
             sub = "Particulier";
         };
+
         subject = 'Blankert Shortlease: Offerte ' + sub;
         message = "Geachte " + geslacht + " " + name + "," +
             "\n \nHartelijk dank voor uw interesse in de diensten van Blankert Shortlease. Wij zijn verheugd om u een op maat gemaakete offerte aan te bieden. In de bijgevoegde offerte vindt u ons aanbod.\n" +
             gew +
-            "\nHeeft u nog vragen of wens u een alternatief aanbod, dan staan wij altijd klaar om u te helpen. \n \n"
-
-            ;
+            "\nHeeft u nog vragen of wens u een alternatief aanbod, dan staan wij altijd klaar om u te helpen. \n \n" +
+            sub2 + "";
 
         var mailtoUrl = 'mailto:' + email + '?bcc=' + 'offerte@blankert.nl' + '&subject=' + encodeURIComponent(
             subject) + '&body=' + encodeURIComponent(message);

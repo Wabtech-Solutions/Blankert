@@ -5,6 +5,12 @@
     <script src="{{ public_path('/js/pdf.js') }}"></script>
 </head>
 
+<style>
+.hidden{
+    display: none;
+}
+    </style>
+
 @php
 
     $auto1Id = session('auto1Id');
@@ -1283,6 +1289,7 @@
     </div>
 </div>
 
+@if(isset($auto4Id))
 
 <div id="page2">
     <div id="page1-1" class="page">
@@ -1953,32 +1960,719 @@
 
 </div>
 
-<div id="page3">
-    <div id="page1" class="page">
-        <div class="logo-container">
-            <img width="150px" style="margin-left: 15px; "
-                src="https://www.blankertshortlease.nl/wp-content/uploads/2023/08/BLAN_Logo_Groen_V10.png"
-                alt="">
+@else
+    @if(isset($looptijd4Auto1KM1) && isset($looptijd4Auto2KM1))
+    <div id="page2">
+        <div id="page1-1" class="page">
+            <div class="logo-container">
+                <img width="150px" style="margin-left: 15px; "
+                    src="https://www.blankertshortlease.nl/wp-content/uploads/2023/08/BLAN_Logo_Groen_V10.png"
+                    alt="">
+                <div class="center">
+                    <p class="logo-text"><b>Shortlease-Offerte</b></p>
+                </div>
+                <div class="helper-phone">
+                    <p style="margin: 0px" class="helper-text"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                            <path
+                                d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                        </svg> 038 - 720 0880</p>
+                </div>
+            </div>
             <div class="center">
-                <p class="logo-text"><b>Shortlease-Offerte</b></p>
+                <div id="offer-style2" class="offer2">
+                    <div class="relocate2"> </div>
+                    @isset($auto4Id)
+                        <div class="offer-item">
+                            <div class="container">
+                                <div class="offer-title">
+                                    <h1 style="padding-top: 10px;">
+                                        {{ $Merkauto4 . ' ' . $Typeauto4 . ' ' . $Uitvoeringauto4 }}
+                                    </h1>
+                                </div>
+                                <div class="offerte-img"> <img width="200px" style="border-radius: 10px;"
+                                        src="{{ $Afbeeldinggauto4 }}" alt="">
+                                    <center><a href="{{ $URLgauto4 }}/"><button class="offerte-btn"
+                                                style="margin-right: 20px">Bekijk op de website</button></a>
+                                    </center>
+                                </div>
+                                <div class="offer-specs-layout">
+                                    <div class="specs-flex">
+                                        <div class="specs-item">
+                                            <center>
+                                                <p class="specs-tr">Brandstof</p>
+                                                <p class="specs-td">{{ $Brandstofauto4 }}</p>
+                                            </center>
+                                        </div>
+                                        <div class="specs-item">
+                                            <center>
+                                                <p class="specs-tr">Transmissie</p>
+                                                <p class="specs-td">{{ $Transmissieauto4 }}</p>
+                                        </div>
+                                        <div class="specs-item">
+                                            <center>
+                                                <p class="specs-tr">Fiscale waarde</p>
+                                                <p class="specs-td">€ {{ $FiscaleWaardeauto4 }}</p>
+                                        </div>
+                                        <div class="specs-item">
+                                            <center>
+                                                <p class="specs-tr">Bijtelling</p>
+                                                <p class="specs-td">{{ $Bijtellingauto4 }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="tarieven-box">
+                                        @isset($looptijd1auto4)
+                                            <div class="tarieven">
+                                                <p class="tarief-title">{{ $looptijd1auto4 }} maand of langer</p>
+                                                @isset($looptijd1auto4Tarief1)
+                                                    <p class="tarief-value">€ {{ $looptijd1auto4Tarief1 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd1auto4Tarief1BTW = $looptijd1auto4Tarief1 * 1.21;
+                                                                $looptijd1auto4Tarief1BTWRounded = number_format($looptijd1auto4Tarief1BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd1auto4Tarief1BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd1auto4KM1 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd1auto4KM112Mnd = $looptijd1auto4KM1 * 12;
+                                                            $looptijd1auto4KM112MndRoundedTop = ceil($looptijd1auto4KM112Mnd / 1000) * 1000;
+                                                            $looptijd1auto4KM112MndRounded = number_format($looptijd1auto4KM112MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+
+                                                        {{ $looptijd1auto4KM112MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd1auto4Tarief2)
+                                                    <p class="tarief-value"> € {{ $looptijd1auto4Tarief2 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd1auto4Tarief2BTW = $looptijd1auto4Tarief2 * 1.21;
+                                                                $looptijd1auto4Tarief2BTWRounded = number_format($looptijd1auto4Tarief2BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd1auto4Tarief2BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd1auto4KM2 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd1auto4KM212Mnd = $looptijd1auto4KM2 * 12;
+                                                            $looptijd1auto4KM212MndRoundedTop = ceil($looptijd1auto4KM212Mnd / 1000) * 1000;
+                                                            $looptijd1auto4KM212MndRounded = number_format($looptijd1auto4KM212MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+                                                        {{ $looptijd1auto4KM212MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd1auto4KM3)
+                                                    <p class="tarief-value"> € {{ $looptijd1auto4Tarief3 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd1auto4Tarief3BTW = $looptijd1auto4Tarief3 * 1.21;
+                                                                $looptijd1auto4Tarief3BTWRounded = number_format($looptijd1auto4Tarief3BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd1auto4Tarief3BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd1auto4KM3 }}km </b> per
+                                                        maand (
+
+                                                        @php
+                                                            $looptijd1auto4KM312Mnd = $looptijd1auto4KM3 * 12;
+                                                            $looptijd1auto4KM312MndRoundedTop = ceil($looptijd1auto4KM312Mnd / 1000) * 1000;
+                                                            $looptijd1auto4KM312MndRounded = number_format($looptijd1auto4KM312MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+
+                                                        {{ $looptijd1auto4KM312MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                            </div>
+                                        @else
+                                        @endisset
+                                        @isset($looptijd2auto4)
+                                            <div class="tarieven">
+                                                <p class="tarief-title">{{ $looptijd2auto4 }} maand of langer</p>
+                                                @isset($looptijd2auto4Tarief1)
+                                                    <p class="tarief-value">€ {{ $looptijd2auto4Tarief1 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd2auto4Tarief1BTW = $looptijd2auto4Tarief1 * 1.21;
+                                                                $looptijd2auto4Tarief1BTWRounded = number_format($looptijd2auto4Tarief1BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd2auto4Tarief1BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd2auto4KM1 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd2auto4KM112Mnd = $looptijd2auto4KM1 * 12;
+                                                            $looptijd2auto4KM112MndRoundedTop = ceil($looptijd2auto4KM112Mnd / 1000) * 1000;
+                                                            $looptijd2auto4KM112MndRounded = number_format($looptijd2auto4KM112MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+
+                                                        {{ $looptijd2auto4KM112MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd2auto4Tarief2)
+                                                    <p class="tarief-value"> € {{ $looptijd2auto4Tarief2 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd2auto4Tarief2BTW = $looptijd2auto4Tarief2 * 1.21;
+                                                                $looptijd2auto4Tarief2BTWRounded = number_format($looptijd2auto4Tarief2BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd2auto4Tarief2BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd2auto4KM2 }}km </b> per
+                                                        maand (
+
+                                                        @php
+                                                            $looptijd2auto4KM212Mnd = $looptijd2auto4KM2 * 12;
+                                                            $looptijd2auto4KM212MndRoundedTop = ceil($looptijd2auto4KM212Mnd / 1000) * 1000;
+                                                            $looptijd2auto4KM212MndRounded = number_format($looptijd2auto4KM212MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+
+                                                        {{ $looptijd2auto4KM212MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd2auto4KM3)
+                                                    <p class="tarief-value"> € {{ $looptijd2auto4Tarief3 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd2auto4Tarief3BTW = $looptijd2auto4Tarief3 * 1.21;
+                                                                $looptijd2auto4Tarief3BTWRounded = number_format($looptijd2auto4Tarief3BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd2auto4Tarief3BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd2auto4KM3 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd2auto4KM312Mnd = $looptijd2auto4KM3 * 12;
+                                                            $looptijd2auto4KM312MndRoundedTop = ceil($looptijd2auto4KM312Mnd / 1000) * 1000;
+                                                            $looptijd2auto4KM312MndRounded = number_format($looptijd2auto4KM312MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+                                                        {{ $looptijd2auto4KM312MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                            </div>
+                                        @else
+                                        @endisset
+                                        @isset($looptijd3auto4)
+                                            <div class="tarieven">
+                                                <p class="tarief-title">{{ $looptijd3auto4 }} maand of langer</p>
+                                                @isset($looptijd3auto4Tarief1)
+                                                    <p class="tarief-value">€ {{ $looptijd3auto4Tarief1 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd3auto4Tarief1BTW = $looptijd3auto4Tarief1 * 1.21;
+                                                                $looptijd3auto4Tarief1BTWRounded = number_format($looptijd3auto4Tarief1BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd3auto4Tarief1BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd3auto4KM1 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd3auto4KM112Mnd = $looptijd3auto4KM1 * 12;
+                                                            $looptijd3auto4KM112MndRoundedTop = ceil($looptijd3auto4KM112Mnd / 1000) * 1000;
+                                                            $looptijd3auto4KM112MndRounded = number_format($looptijd3auto4KM112MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+                                                        {{ $looptijd3auto4KM112MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd3auto4Tarief2)
+                                                    <p class="tarief-value"> € {{ $looptijd3auto4Tarief2 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd3auto4Tarief2BTW = $looptijd3auto4Tarief2 * 1.21;
+                                                                $looptijd3auto4Tarief2BTWRounded = number_format($looptijd3auto4Tarief2BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd3auto4Tarief2BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd3auto4KM2 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd3auto4KM212Mnd = $looptijd3auto4KM2 * 12;
+                                                            $looptijd3auto4KM212MndRoundedTop = ceil($looptijd3auto4KM212Mnd / 1000) * 1000;
+                                                            $looptijd3auto4KM212MndRounded = number_format($looptijd3auto4KM212MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+                                                        {{ $looptijd3auto4KM212MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd3auto4KM3)
+                                                    <p class="tarief-value"> € {{ $looptijd3auto4Tarief3 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd3auto4Tarief3BTW = $looptijd3auto4Tarief3 * 1.21;
+                                                                $looptijd3auto4Tarief3BTWRounded = number_format($looptijd3auto4Tarief3BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd3auto4Tarief3BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd3auto4KM3 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd3auto4KM312Mnd = $looptijd3auto4KM3 * 12;
+                                                            $looptijd3auto4KM312MndRoundedTop = ceil($looptijd3auto4KM312Mnd / 1000) * 1000;
+                                                            $looptijd3auto4KM312MndRounded = number_format($looptijd3auto4KM312MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+                                                        {{ $looptijd3auto4KM312MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                            </div>
+                                        @else
+                                        @endisset
+                                        @isset($looptijd4auto4)
+                                            <div class="tarieven">
+                                                <p class="tarief-title">{{ $looptijd4auto4 }} maand of langer</p>
+                                                @isset($looptijd4auto4Tarief1)
+                                                    <p class="tarief-value">€ {{ $looptijd4auto4Tarief1 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd4auto4Tarief1BTW = $looptijd4auto4Tarief1 * 1.21;
+                                                                $looptijd4auto4Tarief1BTWRounded = number_format($looptijd4auto4Tarief1BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd4auto4Tarief1BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd4auto4KM1 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd4auto4KM112Mnd = $looptijd4auto4KM1 * 12;
+                                                            $looptijd4auto4KM112MndRoundedTop = ceil($looptijd4auto4KM112Mnd / 1000) * 1000;
+                                                            $looptijd4auto4KM112MndRounded = number_format($looptijd4auto4KM112MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+
+                                                        {{ $looptijd4auto4KM112MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd4auto4Tarief2)
+                                                    <p class="tarief-value"> € {{ $looptijd4auto4Tarief2 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd4auto4Tarief2BTW = $looptijd4auto4Tarief2 * 1.21;
+                                                                $looptijd4auto4Tarief2BTWRounded = number_format($looptijd4auto4Tarief2BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd4auto4Tarief2BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd4auto4KM2 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd4auto4KM212Mnd = $looptijd4auto4KM2 * 12;
+                                                            $looptijd4auto4KM212MndRoundedTop = ceil($looptijd4auto4KM212Mnd / 1000) * 1000;
+                                                            $looptijd4auto4KM212MndRounded = number_format($looptijd4auto4KM212MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+                                                        {{ $looptijd4auto4KM212MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd4auto4KM3)
+                                                    <p class="tarief-value"> € {{ $looptijd4auto4Tarief3 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd4auto4Tarief3BTW = $looptijd4auto4Tarief3 * 1.21;
+                                                                $looptijd4auto4Tarief3BTWRounded = number_format($looptijd4auto4Tarief3BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd4auto4Tarief3BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd4auto4KM3 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd4auto4KM312Mnd = $looptijd4auto4KM3 * 12;
+                                                            $looptijd4auto4KM312MndRoundedTop = ceil($looptijd4auto4KM312Mnd / 1000) * 1000;
+                                                            $looptijd4auto4KM312MndRounded = number_format($looptijd4auto4KM312MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+                                                        {{ $looptijd4auto4KM312MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                            </div>
+                                        @else
+                                        @endisset
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endisset
+                    @isset($auto5Id)
+                        <div class="offer-item">
+                            <div class="container">
+                                <div class="offer-title">
+                                    <h1 style="padding-top: 10px;">
+                                        {{ $Merkauto5 . ' ' . $Typeauto5 . ' ' . $Uitvoeringauto5 }}
+                                    </h1>
+                                </div>
+                                <div class="offerte-img"> <img width="200px" style="border-radius: 10px;"
+                                        src="{{ $Afbeeldinggauto5 }}" alt="">
+                                    <center><a href="{{ $URLgauto5 }}/"><button class="offerte-btn"
+                                                style="margin-right: 20px">Bekijk op de website</button></a>
+                                    </center>
+                                </div>
+                                <div class="offer-specs-layout">
+                                    <div class="specs-flex">
+                                        <div class="specs-item">
+                                            <center>
+                                                <p class="specs-tr">Brandstof</p>
+                                                <p class="specs-td">{{ $Brandstofauto5 }}</p>
+                                            </center>
+                                        </div>
+                                        <div class="specs-item">
+                                            <center>
+                                                <p class="specs-tr">Transmissie</p>
+                                                <p class="specs-td">{{ $Transmissieauto5 }}</p>
+                                        </div>
+                                        <div class="specs-item">
+                                            <center>
+                                                <p class="specs-tr">Fiscale waarde</p>
+                                                <p class="specs-td">€ {{ $FiscaleWaardeauto5 }}</p>
+                                        </div>
+                                        <div class="specs-item">
+                                            <center>
+                                                <p class="specs-tr">Bijtelling</p>
+                                                <p class="specs-td">{{ $Bijtellingauto5 }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="tarieven-box">
+                                        @isset($looptijd1auto5)
+                                            <div class="tarieven">
+                                                <p class="tarief-title">{{ $looptijd1auto5 }} maand of langer</p>
+                                                @isset($looptijd1auto5Tarief1)
+                                                    <p class="tarief-value">€ {{ $looptijd1auto5Tarief1 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd1auto5Tarief1BTW = $looptijd1auto5Tarief1 * 1.21;
+                                                                $looptijd1auto5Tarief1BTWRounded = number_format($looptijd1auto5Tarief1BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd1auto5Tarief1BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd1auto5KM1 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd1auto5KM112Mnd = $looptijd1auto5KM1 * 12;
+                                                            $looptijd1auto5KM112MndRoundedTop = ceil($looptijd1auto5KM112Mnd / 1000) * 1000;
+                                                            $looptijd1auto5KM112MndRounded = number_format($looptijd1auto5KM112MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+
+                                                        {{ $looptijd1auto5KM112MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd1auto5Tarief2)
+                                                    <p class="tarief-value"> € {{ $looptijd1auto5Tarief2 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd1auto5Tarief2BTW = $looptijd1auto5Tarief2 * 1.21;
+                                                                $looptijd1auto5Tarief2BTWRounded = number_format($looptijd1auto5Tarief2BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd1auto5Tarief2BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd1auto5KM2 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd1auto5KM212Mnd = $looptijd1auto5KM2 * 12;
+                                                            $looptijd1auto5KM212MndRoundedTop = ceil($looptijd1auto5KM212Mnd / 1000) * 1000;
+                                                            $looptijd1auto5KM212MndRounded = number_format($looptijd1auto5KM212MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+                                                        {{ $looptijd1auto5KM212MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd1auto5KM3)
+                                                    <p class="tarief-value"> € {{ $looptijd1auto5Tarief3 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd1auto5Tarief3BTW = $looptijd1auto5Tarief3 * 1.21;
+                                                                $looptijd1auto5Tarief3BTWRounded = number_format($looptijd1auto5Tarief3BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd1auto5Tarief3BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd1auto5KM3 }}km </b> per
+                                                        maand (
+
+                                                        @php
+                                                            $looptijd1auto5KM312Mnd = $looptijd1auto5KM3 * 12;
+                                                            $looptijd1auto5KM312MndRoundedTop = ceil($looptijd1auto5KM312Mnd / 1000) * 1000;
+                                                            $looptijd1auto5KM312MndRounded = number_format($looptijd1auto5KM312MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+
+                                                        {{ $looptijd1auto5KM312MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                            </div>
+                                        @else
+                                        @endisset
+                                        @isset($looptijd2auto5)
+                                            <div class="tarieven">
+                                                <p class="tarief-title">{{ $looptijd2auto5 }} maand of langer</p>
+                                                @isset($looptijd2auto5Tarief1)
+                                                    <p class="tarief-value">€ {{ $looptijd2auto5Tarief1 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd2auto5Tarief1BTW = $looptijd2auto5Tarief1 * 1.21;
+                                                                $looptijd2auto5Tarief1BTWRounded = number_format($looptijd2auto5Tarief1BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd2auto5Tarief1BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd2auto5KM1 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd2auto5KM112Mnd = $looptijd2auto5KM1 * 12;
+                                                            $looptijd2auto5KM112MndRoundedTop = ceil($looptijd2auto5KM112Mnd / 1000) * 1000;
+                                                            $looptijd2auto5KM112MndRounded = number_format($looptijd2auto5KM112MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+
+                                                        {{ $looptijd2auto5KM112MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd2auto5Tarief2)
+                                                    <p class="tarief-value"> € {{ $looptijd2auto5Tarief2 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd2auto5Tarief2BTW = $looptijd2auto5Tarief2 * 1.21;
+                                                                $looptijd2auto5Tarief2BTWRounded = number_format($looptijd2auto5Tarief2BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd2auto5Tarief2BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd2auto5KM2 }}km </b> per
+                                                        maand (
+
+                                                        @php
+                                                            $looptijd2auto5KM212Mnd = $looptijd2auto5KM2 * 12;
+                                                            $looptijd2auto5KM212MndRoundedTop = ceil($looptijd2auto5KM212Mnd / 1000) * 1000;
+                                                            $looptijd2auto5KM212MndRounded = number_format($looptijd2auto5KM212MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+
+                                                        {{ $looptijd2auto5KM212MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd2auto5KM3)
+                                                    <p class="tarief-value"> € {{ $looptijd2auto5Tarief3 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd2auto5Tarief3BTW = $looptijd2auto5Tarief3 * 1.21;
+                                                                $looptijd2auto5Tarief3BTWRounded = number_format($looptijd2auto5Tarief3BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd2auto5Tarief3BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd2auto5KM3 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd2auto5KM312Mnd = $looptijd2auto5KM3 * 12;
+                                                            $looptijd2auto5KM312MndRoundedTop = ceil($looptijd2auto5KM312Mnd / 1000) * 1000;
+                                                            $looptijd2auto5KM312MndRounded = number_format($looptijd2auto5KM312MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+                                                        {{ $looptijd2auto5KM312MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                            </div>
+                                        @else
+                                        @endisset
+                                        @isset($looptijd3auto5)
+                                            <div class="tarieven">
+                                                <p class="tarief-title">{{ $looptijd3auto5 }} maand of langer</p>
+                                                @isset($looptijd3auto5Tarief1)
+                                                    <p class="tarief-value">€ {{ $looptijd3auto5Tarief1 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd3auto5Tarief1BTW = $looptijd3auto5Tarief1 * 1.21;
+                                                                $looptijd3auto5Tarief1BTWRounded = number_format($looptijd3auto5Tarief1BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd3auto5Tarief1BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd3auto5KM1 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd3auto5KM112Mnd = $looptijd3auto5KM1 * 12;
+                                                            $looptijd3auto5KM112MndRoundedTop = ceil($looptijd3auto5KM112Mnd / 1000) * 1000;
+                                                            $looptijd3auto5KM112MndRounded = number_format($looptijd3auto5KM112MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+                                                        {{ $looptijd3auto5KM112MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd3auto5Tarief2)
+                                                    <p class="tarief-value"> € {{ $looptijd3auto5Tarief2 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd3auto5Tarief2BTW = $looptijd3auto5Tarief2 * 1.21;
+                                                                $looptijd3auto5Tarief2BTWRounded = number_format($looptijd3auto5Tarief2BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd3auto5Tarief2BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd3auto5KM2 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd3auto5KM212Mnd = $looptijd3auto5KM2 * 12;
+                                                            $looptijd3auto5KM212MndRoundedTop = ceil($looptijd3auto5KM212Mnd / 1000) * 1000;
+                                                            $looptijd3auto5KM212MndRounded = number_format($looptijd3auto5KM212MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+                                                        {{ $looptijd3auto5KM212MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd3auto5KM3)
+                                                    <p class="tarief-value"> € {{ $looptijd3auto5Tarief3 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd3auto5Tarief3BTW = $looptijd3auto5Tarief3 * 1.21;
+                                                                $looptijd3auto5Tarief3BTWRounded = number_format($looptijd3auto5Tarief3BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd3auto5Tarief3BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd3auto5KM3 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd3auto5KM312Mnd = $looptijd3auto5KM3 * 12;
+                                                            $looptijd3auto5KM312MndRoundedTop = ceil($looptijd3auto5KM312Mnd / 1000) * 1000;
+                                                            $looptijd3auto5KM312MndRounded = number_format($looptijd3auto5KM312MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+                                                        {{ $looptijd3auto5KM312MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                            </div>
+                                        @else
+                                        @endisset
+                                        @isset($looptijd4auto5)
+                                            <div class="tarieven">
+                                                <p class="tarief-title">{{ $looptijd4auto5 }} maand of langer</p>
+                                                @isset($looptijd4auto5Tarief1)
+                                                    <p class="tarief-value">€ {{ $looptijd4auto5Tarief1 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd4auto5Tarief1BTW = $looptijd4auto5Tarief1 * 1.21;
+                                                                $looptijd4auto5Tarief1BTWRounded = number_format($looptijd4auto5Tarief1BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd4auto5Tarief1BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd4auto5KM1 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd4auto5KM112Mnd = $looptijd4auto5KM1 * 12;
+                                                            $looptijd4auto5KM112MndRoundedTop = ceil($looptijd4auto5KM112Mnd / 1000) * 1000;
+                                                            $looptijd4auto5KM112MndRounded = number_format($looptijd4auto5KM112MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+
+                                                        {{ $looptijd4auto5KM112MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd4auto5Tarief2)
+                                                    <p class="tarief-value"> € {{ $looptijd4auto5Tarief2 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd4auto5Tarief2BTW = $looptijd4auto5Tarief2 * 1.21;
+                                                                $looptijd4auto5Tarief2BTWRounded = number_format($looptijd4auto5Tarief2BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd4auto5Tarief2BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd4auto5KM2 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd4auto5KM212Mnd = $looptijd4auto5KM2 * 12;
+                                                            $looptijd4auto5KM212MndRoundedTop = ceil($looptijd4auto5KM212Mnd / 1000) * 1000;
+                                                            $looptijd4auto5KM212MndRounded = number_format($looptijd4auto5KM212MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+                                                        {{ $looptijd4auto5KM212MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                                @isset($looptijd4auto5KM3)
+                                                    <p class="tarief-value"> € {{ $looptijd4auto5Tarief3 }},-
+                                                        @isset($btw)
+                                                            @php
+                                                                $looptijd4auto5Tarief3BTW = $looptijd4auto5Tarief3 * 1.21;
+                                                                $looptijd4auto5Tarief3BTWRounded = number_format($looptijd4auto5Tarief3BTW, 2, ',', '.');
+                                                            @endphp
+                                                            (€ {{ $looptijd4auto5Tarief3BTWRounded }} incl. BTW)
+                                                        @endisset
+                                                        o.b.v. <b>
+                                                            {{ $looptijd4auto5KM3 }}km </b> per
+                                                        maand (
+                                                        @php
+                                                            $looptijd4auto5KM312Mnd = $looptijd4auto5KM3 * 12;
+                                                            $looptijd4auto5KM312MndRoundedTop = ceil($looptijd4auto5KM312Mnd / 1000) * 1000;
+                                                            $looptijd4auto5KM312MndRounded = number_format($looptijd4auto5KM312MndRoundedTop, 0, '.', '.');
+                                                        @endphp
+                                                        {{ $looptijd4auto5KM312MndRounded }}km per jaar)</p>
+                                                @else
+                                                @endisset
+                                            </div>
+                                        @else
+                                        @endisset
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endisset
+
+                    {{-- <div class="offer-item">
+                    6
+                </div> --}}
+
+                </div>
             </div>
-            <div class="helper-phone">
-                <p style="margin: 0px" class="helper-text"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                        height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
-                        <path
-                            d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
-                    </svg> 038 - 720 0880</p>
-            </div>
+
         </div>
-        <div class="center">
-            <div id="relocate3" class="offer2">
+
+
+
+
+
+
+
+
+    </div>
+    @endif
+@endif
+
+
+@if(isset($auto5Id))
+
+    @if(isset($looptijd4Auto3KM1) && isset($looptijd4Auto4KM1))
+
+    <div id="page3">
+        <div id="page1" class="page">
+            <div class="logo-container">
+                <img width="150px" style="margin-left: 15px; "
+                    src="https://www.blankertshortlease.nl/wp-content/uploads/2023/08/BLAN_Logo_Groen_V10.png"
+                    alt="">
+                <div class="center">
+                    <p class="logo-text"><b>Shortlease-Offerte</b></p>
+                </div>
+                <div class="helper-phone">
+                    <p style="margin: 0px" class="helper-text"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                            height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                            <path
+                                d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                        </svg> 038 - 720 0880</p>
+                </div>
+            </div>
+            <div class="center">
+                <div id="relocate3" class="offer2">
+
+                </div>
 
             </div>
-
         </div>
+
     </div>
 
-</div>
+    @else
+
+    @endif
+@endif
+
+
+
+
 
 <div id="pageAanvullend" class="page">
     <div class="logo-container">
@@ -2040,7 +2734,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     if (height < "905"){
-        page2.classList.add("hidden");
+        // page2.classList.add("hidden");
     }else{
 
     }
@@ -2057,7 +2751,7 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
 
         if (height2 <  "105"){ // grotte van de div is langer dan 1 pagina
-            // page2.style.display = "none";
+            // page3.classList.add("hidden");
 
 
 

@@ -125,6 +125,10 @@ body {
     overflow: hidden;
 }
 
+.hidden{
+    display: none;
+}
+
 #offer-style {
     overflow-y: hidden;
     overflow-x: hidden;

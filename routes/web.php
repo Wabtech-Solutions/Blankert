@@ -31,11 +31,13 @@ Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/hubspot', [HubspotController::class, 'getDealById']);
 Route::get('/hubspot/oauth2', [HubspotController::class, 'oauth2']);
 Route::get('/hubspot/login', [HubspotController::class, 'login']);
+Route::get('/aanvraag-zakelijk', function () {
+    return Redirect::to('https://www.blankertshortlease.nl/wp-content/uploads/2023/08/Account-Aanvraagformulier-zakelijk.pdf');});
 
-Route::middleware(Authenticate::class)->group(function () {
-    Route::get('/', function () {
-        return view('welcome');
-    })->name('welcome');
+// Route::middleware(Authenticate::class)->group(function () {
+//     Route::get('/', function () {
+//         return view('welcome');
+//     })->name('welcome');
     Route::get('/home', [AuthController::class, 'index'])->name('home');
     Route::get('/admin/statestieken', [AuthController::class, 'adminStat'])->name('admin.statestieken');
     Route::get('/admin/gebruikers', [AuthController::class, 'adminUserManage'])->name('admin.userManage');
@@ -47,7 +49,7 @@ Route::middleware(Authenticate::class)->group(function () {
     Route::post('/home', [App\Http\Controllers\ListController::class, 'store']);
     Route::get('/pdf', [App\Http\Controllers\ListController::class, 'show']);
     Route::get('/generate-pdf', [App\Http\Controllers\PdfGenerateController::class, 'pdfview'])->name('generate-pdf');
-});
+// });
 
 
 Route::post('/', function (Illuminate\Http\Request $request) {

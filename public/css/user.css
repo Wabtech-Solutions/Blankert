@@ -36,7 +36,7 @@ a{
     height: 80%;
     grid-template-areas: "car hubspot offerte"
     "stats stats offerte";
-    grid-template-columns: auto 410px 400px ;
+    grid-template-columns: 860px 400px 400px ;
     grid-template-rows: 60% 45%;
   }
   .container > div {
@@ -50,6 +50,8 @@ a{
     border-radius: 10px;
     padding: 10px;
     background-color: white;
+    height: 793px;
+
    }
   .car {
     grid-area: car;
@@ -61,6 +63,7 @@ a{
     border-radius: 10px;
     padding: 5px;
     background-color: white;
+    height: 803px;
   }
 
 
@@ -265,4 +268,264 @@ a{
     fill: rgba(0,112,210,1);
     stroke-width: 2;
     stroke: white;
+}
+
+body,
+table,
+input,
+select,
+textarea {
+}
+
+.graph {
+  margin-bottom: 1em;
+  font: normal 100%/150% arial, helvetica, sans-serif;
+}
+
+.graph caption {
+  font: bold 150%/120% arial, helvetica, sans-serif;
+  padding-bottom: 0.33em;
+}
+
+.graph tbody th {
+  text-align: right;
+}
+
+@supports (display: grid) {
+  @media (min-width: 32em) {
+    .graph {
+      display: block;
+      width: 350px;
+      height: 200px;
+    }
+
+    .graph caption {
+      display: block;
+    }
+
+    .graph thead {
+      display: none;
+    }
+
+    .graph tbody {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(2em, 1fr));
+      column-gap: 2.5%;
+      align-items: end;
+      height: 100%;
+      margin: 3em 0 1em 2.8em;
+      padding: 0 1em;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+      background: repeating-linear-gradient(
+        180deg,
+        rgba(170, 170, 170, 0.7) 0,
+        rgba(170, 170, 170, 0.7) 1px,
+        transparent 1px,
+        transparent 20%
+      );
+    }
+
+    .graph tbody:before,
+    .graph tbody:after {
+      position: absolute;
+      left: -3.2em;
+      width: 2.8em;
+      text-align: right;
+      font: bold 80%/120% arial, helvetica, sans-serif;
+    }
+
+    .graph tbody:before {
+      content: "100%";
+      top: -0.6em;
+    }
+
+    .graph tbody:after {
+      content: "0%";
+      bottom: -0.6em;
+    }
+
+    .graph tr {
+      position: relative;
+      display: block;
+    }
+
+    .graph tr:hover {
+      z-index: 999;
+    }
+
+    .graph th,
+    .graph td {
+      display: block;
+      text-align: center;
+    }
+
+    .graph tbody th {
+      position: absolute;
+      top: 3em;
+      left: 0;
+      width: 100%;
+      font-weight: normal;
+      font-family: 'Inter';
+      text-align: center;
+      color: white;
+      white-space: wrap;
+      text-indent: 0;
+    }
+
+    .graph tbody th:after {
+      content: "";
+    }
+
+    .graph td {
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient( 109.6deg,  rgba(61,131,97,1) 11.2%, rgba(28,103,88,1) 91.1% );
+      border-radius: 0.5em 0.5em 0 0;
+      transition: background 0.5s;
+    }
+
+    .graph tr:hover td {
+      opacity: 0.7;
+    }
+
+    .graph td span {
+      overflow: hidden;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      padding: 0.5em 0;
+      margin: -1em 0 0;
+      font: normal 85%/120% arial, helvetica, sans-serif;
+      /* 			background:white; */
+      /* 			box-shadow:0 0 0.25em rgba(0,0,0,0.6); */
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.5s;
+      color: white;
+    }
+
+    .toggleGraph:checked + table td span,
+    .graph tr:hover td span {
+      width: 4em;
+      margin-left: -2em; /* 1/2 the declared width */
+      opacity: 1;
+    }
+  } /* min-width:32em */
+} /* grid only */
+
+// sets
+
+$gl-ms: "screen and (max-width: 23.5em)"; // up to 360px
+$gl-xs: "screen and (max-width: 35.5em)"; // up to 568px
+$gl-sm: "screen and (max-width: 48em)"; // max 768px
+$gl-md: "screen and (max-width: 64em)"; // max 1024px
+$gl-lg: "screen and (max-width: 80em)"; // max 1280px
+
+// table style
+
+table {
+  border-spacing: 1;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+
+  * {
+    position: relative;
+  }
+
+  td,
+  th {
+    padding-left: 8px;
+  }
+
+  thead tr {
+    height: 60px;
+    background: #ffed86;
+    font-size: 16px;
+  }
+
+  tbody tr {
+    height: 48px;
+    border-bottom: 1px solid #e3f1d5;
+    &:last-child {
+      border: 0;
+    }
+  }
+
+  td,
+  th {
+    text-align: left;
+    &.l {
+      text-align: right;
+    }
+    &.c {
+      text-align: center;
+    }
+    &.r {
+      text-align: center;
+    }
+  }
+}
+
+@media #{$gl-xs} {
+  table {
+    display: block;
+    > *,
+    tr,
+    td,
+    th {
+      display: block;
+    }
+
+    thead {
+      display: none;
+    }
+    tbody tr {
+      height: auto;
+      padding: 8px 0;
+      td {
+        padding-left: 45%;
+        margin-bottom: 12px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &:before {
+          position: absolute;
+          font-weight: 700;
+          width: 40%;
+          left: 10px;
+          top: 0;
+        }
+
+        &:nth-child(1):before {
+          content: "Code";
+        }
+        &:nth-child(2):before {
+          content: "Stock";
+        }
+        &:nth-child(3):before {
+          content: "Cap";
+        }
+        &:nth-child(4):before {
+          content: "Inch";
+        }
+        &:nth-child(5):before {
+          content: "Box Type";
+        }
+      }
+    }
+  }
+}
+
+
+
+thead{
+    background-image: ( 109.6deg,  rgba(28,103,88,1), rgba(61,131,97,1) 91.1% )
 }

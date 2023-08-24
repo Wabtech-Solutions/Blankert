@@ -26,8 +26,8 @@ class PdfGenerateController extends Controller
         	// pass view file
             $pdf = PDF::loadView('pdf');
             $pdf->setOption('enable-javascript', true);
-            $pdf->setOption('javascript-delay', 6000);
-            $pdf->setOption('enable-smart-shrinking', true);
+            $pdf->setOption('javascript-delay', 1);
+            $pdf->setOption('enable-smart-shrinking', false);
             $pdf->setOption('no-stop-slow-scripts', true);
             $pdf->setOption('margin-top', '0');
             $pdf->setOption('margin-bottom', '0');
@@ -37,7 +37,7 @@ class PdfGenerateController extends Controller
             $pdf->setOption('page-width', '210mm');
             $pdf->setOption('lowquality', true);
             $pdf->setOption('disable-smart-shrinking', true);
-            $pdf->setOption('zoom', '1.4');
+            $pdf->setOption('zoom', '1.0');
             // download pdf
 
             return $pdf->download('offerte.pdf');

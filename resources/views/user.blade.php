@@ -11,7 +11,7 @@ if ($h >= 5 && $h <= 11) {
 } elseif ($h >= 12 && $h <= 18) {
     $set = 'Goedemiddag ' . auth()->user()->name;
 } else {
-    $set = 'Ga naar huis ' . auth()->user()->name . '!';
+    $set = 'Pizza bestellen ' . auth()->user()->name . '?';
 } ?>
 @php
     $mail = 'Geachte';

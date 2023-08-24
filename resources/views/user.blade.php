@@ -16,17 +16,17 @@ if ($h >= 5 && $h <= 11) {
 } ?>
 @php
     $mail = 'Geachte';
-    $maandVorig = DB::table('statestieken')->value('maandVorig');
-    $bezettingsgraad = DB::table('statestieken')->value('bezetting');
-    $bezettingsgraadHuidigMaand = DB::table('statestieken')->value('bezettingsgraadHuidigMaand');
-    $bezettingsgraad2week = DB::table('statestieken')->value('bezettingsgraad2week');
-    $bezettingsgraadVorigeWeek = DB::table('statestieken')->value('bezettingsgraadVorigeWeek');
-    $bezettingsgraadHuidigWeek = DB::table('statestieken')->value('bezettingsgraadHuidigWeek');
-    $focus1 = DB::table('statestieken')->value('focus1');
-    $focus2 = DB::table('statestieken')->value('focus2');
-    $focus3 = DB::table('statestieken')->value('focus3');
-    $wagenpark = DB::table('statestieken')->value('aantalAuto');
-    $wagenpark2 = DB::table('statestieken')->value('wagenpark2');
+    // $maandVorig = DB::table('statestieken')->value('maandVorig');
+    // $bezettingsgraad = DB::table('statestieken')->value('bezetting');
+    // $bezettingsgraadHuidigMaand = DB::table('statestieken')->value('bezettingsgraadHuidigMaand');
+    // $bezettingsgraad2week = DB::table('statestieken')->value('bezettingsgraad2week');
+    // $bezettingsgraadVorigeWeek = DB::table('statestieken')->value('bezettingsgraadVorigeWeek');
+    // $bezettingsgraadHuidigWeek = DB::table('statestieken')->value('bezettingsgraadHuidigWeek');
+    // $focus1 = DB::table('statestieken')->value('focus1');
+    // $focus2 = DB::table('statestieken')->value('focus2');
+    // $focus3 = DB::table('statestieken')->value('focus3');
+    // $wagenpark = DB::table('statestieken')->value('aantalAuto');
+    // $wagenpark2 = DB::table('statestieken')->value('wagenpark2');
     $naam = session('naam');
     $email = session('email');
     $btw = session('btw');

@@ -20,7 +20,7 @@
                 @csrf
 
                 <div class="center"><input type="email" name="Email" value="{{ request()->old('Email') }}"
-                        placeholder="Email" id="Email"></div>
+                        placeholder="Email BLANKERT" id="Email"></div>
                 <div class="center"><input type="password" name="Password" placeholder="Wactwoord" id="Password"></div>
 
                 <div class="center">

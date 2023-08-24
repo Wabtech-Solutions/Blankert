@@ -38,7 +38,10 @@ Route::get('/aanvraag-zakelijk', function () {
 //     Route::get('/', function () {
 //         return view('welcome');
 //     })->name('welcome');
-    Route::get('/home', [AuthController::class, 'index'])->name('home');
+    // Route::get('/home', [AuthController::class, 'index'])->name('home');
+    Route::get('/home', function () {
+        return view('home');
+    })->name('home');
     Route::get('/admin/statestieken', [AuthController::class, 'adminStat'])->name('admin.statestieken');
     Route::get('/admin/gebruikers', [AuthController::class, 'adminUserManage'])->name('admin.userManage');
     Route::get('/admin/gebruikers/toevoegen', [AuthController::class, 'adminUserAdd'])->name('admin.userAdd');

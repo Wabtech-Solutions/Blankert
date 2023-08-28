@@ -21,6 +21,9 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+Route::get('/phpv', function () {
+    return view('phpinfo');
+})->name('phpinfo');
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/logout', [AuthController::class, 'logout']);

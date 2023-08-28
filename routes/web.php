@@ -6,7 +6,7 @@ use App\Http\Controllers\HubspotController;
 use App\Http\Middleware\Authenticate;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use SimpleXMLElement;
+use SimpleXML;
 
 /*
 |--------------------------------------------------------------------------

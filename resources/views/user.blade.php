@@ -1,4 +1,6 @@
-{{-- <title>Hi {{ auth()->user()->name }} ✌️</title> --}}
+<title>Hi {{ auth()->user()->name }} ✌️</title>
+
+
 <link rel="stylesheet" href="/css/user.css">
 <link rel="stylesheet" href="/css/slider.css">
 <script src="/js/options.js"></script>

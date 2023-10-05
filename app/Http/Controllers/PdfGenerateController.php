@@ -44,5 +44,5 @@ class PdfGenerateController extends Controller
         }
 
         return view('pdf');
-    }
+}
 }

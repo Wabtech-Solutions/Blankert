@@ -1,4 +1,4 @@
-<title>Hi {{ auth()->user()->name }} ✌️</title>
+<title>Blankert: {{ auth()->user()->name }} </title>
 
 
 <link rel="stylesheet" href="/css/user.css">
@@ -9,11 +9,11 @@
 <?php date_default_timezone_set('Europe/Amsterdam');
 $h = date('G');
 if ($h >= 5 && $h <= 11) {
-    $set = 'Goedemorgen ' . $set = 'Goedemorgen ' . auth()->user()->name;
+    $set = 'Goedemorgen ' . auth()->user()->name;
 } elseif ($h >= 12 && $h <= 18) {
     $set = 'Goedemiddag ' . auth()->user()->name;
 } else {
-    $set = 'Pizza bestellen ' . auth()->user()->name . '?';
+    $set = 'Tijd voor pizza ' . auth()->user()->name . '?';
 } ?>
 @php
     $mail = 'Geachte';
@@ -1242,7 +1242,7 @@ if ($h >= 5 && $h <= 11) {
 
         if (gewenst.value == "Nee") {
             gew =
-                '\nHelaas hebbebn we momenteel niet de gewenste auto beschikbaar, u vindt in de offerte een passend alternatief.';
+                '\nHelaas hebben we momenteel niet de gewenste auto beschikbaar, u vindt in de offerte een passend alternatief.';
         } else {
             gew = "";
         };
@@ -1259,7 +1259,7 @@ if ($h >= 5 && $h <= 11) {
         message = "Geachte " + geslacht + " " + name + "," +
             "\n \nHartelijk dank voor uw interesse in de diensten van Blankert Shortlease. Wij zijn verheugd om u een op maat gemaakete offerte aan te bieden. In de bijgevoegde offerte vindt u ons aanbod.\n" +
             gew +
-            "\nHeeft u nog vragen of wens u een alternatief aanbod, dan staan wij altijd klaar om u te helpen. \n \n" +
+            "\nHeeft u nog vragen of wenst u een alternatief aanbod, dan staan wij altijd klaar om u te helpen. \n \n" +
             sub2 + "";
 
         var mailtoUrl = 'mailto:' + email + '?bcc=' + 'offerte@blankert.nl' + '&subject=' + encodeURIComponent(

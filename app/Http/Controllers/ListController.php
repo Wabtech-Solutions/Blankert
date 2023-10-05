@@ -2,13 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Library\AutoFeed;
+
 use Illuminate\Http\Request;
+
 
 class ListController extends Controller
 {
         public function index()
         {
             return view('home');
+        }
+
+        public function AutoFeed()
+        {
+            $Autofeed = new Autofeed([
+
+            ]);
+
+            $Autofeed->setAutoId(1730);
+            $Autofeed->getURL();
+
+            return view('test');
         }
 
         public function store(Request $request)

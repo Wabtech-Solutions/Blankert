@@ -26,9 +26,9 @@
                 <div class="center">
                     <button type="submit" name="Login" id="Login">Login</button>
                 </div>
-                <div class="center">
+                {{-- <div class="center">
                     <p class="version"> Ontwikkeld door <a style="color: #ffbf00" href="https://wabtech-solutions.nl/" target="_blank" rel="noopener noreferrer"> Wabtech-Solutions</a> </p>
-                </div>
+                </div> --}}
             </form>
 
         </div>

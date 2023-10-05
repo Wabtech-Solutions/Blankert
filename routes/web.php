@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HubspotController;
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+Route::get('/test', [ListController::class, 'AutoFeed']);
 Route::get('/phpv', function () {
     return view('phpinfo');
 })->name('phpinfo');

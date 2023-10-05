@@ -395,6 +395,7 @@
                                                 o.b.v. <b>
                                                     {{ $looptijd1Auto1KM1 }}km </b> per
                                                 maand (
+
                                                 @php
                                                     $looptijd1Auto1KM112Mnd = $looptijd1Auto1KM1 * 12;
                                                     $looptijd1Auto1KM112MndRoundedTop = ceil($looptijd1Auto1KM112Mnd / 1000) * 1000;
